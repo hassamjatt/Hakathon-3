@@ -1,0 +1,218 @@
+html>
+  <head>
+    <title>Resume Builder</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-section">
+        <h1 class="heading"> Dynamic Resume Builder</h1>
+        <form id="resumeForm">
+          <div class="form-group">
+            <label for="profilePicture"> Profile Picture </label>
+            <input id="profilePicture" name="profilePicture" type="file" />
+          </div>
+          <div class="form-group">
+            <label for="name"> Name </label>
+            <input id="name" name="name" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="jobTitle"> Job Title </label>
+            <input id="jobTitle" name="jobTitle" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="address"> Address </label>
+            <input id="address" name="address" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="email"> Email </label>
+            <input id="email" name="email" type="email" />
+          </div>
+          <div class="form-group">
+            <label for="website"> Website </label>
+            <input id="website" name="website" type="url" />
+          </div>
+          <div class="form-group">
+            <label for="phone"> Phone </label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+          <div class="form-group">
+            <label for="about"> About </label>
+            <textarea
+              id="about"
+              name="about"
+              placeholder="Write a brief about yourself"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label> Education </label>
+            <div id="educationSection">
+              <div class="education-entry">
+                <input
+                  name="eduDuration[]"
+                  placeholder="Duration (e.g., 2010-2015)"
+                  type="text"
+                />
+                <input
+                  name="eduInstitution[]"
+                  placeholder="Institution Name"
+                  type="text"
+                />
+                <textarea
+                  name="eduDescription[]"
+                  placeholder="Description"
+                ></textarea>
+              </div>
+            </div>
+            <br />
+            <button class="add-btn" onclick="addEducation()" type="button">
+              Add Education
+            </button>
+          </div>
+          <div class="form-group">
+            <label> Experience </label>
+            <div id="experienceSection">
+              <div class="experience-entry">
+                <input
+                  name="expDuration[]"
+                  placeholder="Duration"
+                  type="text"
+                />
+                <input
+                  name="expCompany[]"
+                  placeholder="Company/Organization Name"
+                  type="text"
+                />
+                <textarea
+                  name="expDescription[]"
+                  placeholder="Description"
+                ></textarea>
+              </div>
+            </div>
+            <br />
+            <button class="add-btn" onclick="addExperience()" type="button">
+              Add Experience
+            </button>
+          </div>
+          <div class="form-group">
+            <label> Skills </label>
+            <div id="skillsSection">
+              <div class="skill-entry">
+                <input
+                  name="skillName[]"
+                  placeholder="Skill Name"
+                  type="text"
+                />
+                <input
+                  max="100"
+                  min="0"
+                  name="skillLevel[]"
+                  placeholder="Skill Level (0-100)"
+                  type="number"
+                />
+              </div>
+            </div>
+            <br />
+            <button class="add-btn" onclick="addSkill()" type="button">
+              Add Skill
+            </button>
+          </div>
+          <div class="form-group">
+            <label> Social Links </label>
+            <input name="linkedin" placeholder="LinkedIn" type="url" />
+            <input name="twitter" placeholder="Twitter" type="url" />
+            <input name="instagram" placeholder="Instagram" type="url" />
+          </div>
+          <button class="generate-btn" onclick="generateResume()" type="button">
+            Generate Resume
+          </button>
+        </form>
+      </div>
+      <div class="resume-section" id="resumeSection">
+        <div class="left-column">
+          <img
+          
+            class="profile-pic"
+            height="100"
+            id="profilePic"
+            width="100"
+          />
+          <h2 id="displayName" class="displayName">Name</h2>
+          <h3 id="displayJobTitle" class="displayJobTitle">Job Title</h3>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-map-marker-alt"> </i>
+              <span id="displayAddress"> Address </span>
+            </p>
+            <p>
+              <i class="fas fa-envelope"> </i>
+              <span id="displayEmail"> Email </span>
+            </p>
+            <p>
+              <i class="fas fa-globe"> </i>
+              <span id="displayWebsite"> Website </span>
+            </p>
+            <p>
+              <i class="fas fa-phone"> </i>
+              <span id="displayPhone"> Phone </span>
+            </p>
+          </div>
+          <div class="skills">
+            <h3 class="section-title">Skills</h3>
+            <div id="displaySkills">
+              <!-- Skills will be displayed here -->
+            </div>
+          </div>
+          <div class="social-links">
+            <h3 class="section-title">Social Links</h3>
+            <p>
+              <i class="fab fa-linkedin"> </i>
+              <span id="displayLinkedIn"> LinkedIn </span>
+            </p>
+            <p>
+              <i class="fab fa-twitter"> </i>
+              <span id="displayTwitter"> Twitter </span>
+            </p>
+            <p>
+              <i class="fab fa-instagram"> </i>
+              <span id="displayInstagram"> Instagram </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="about">
+            <h3 class="section-title">About</h3>
+            <p id="displayAbout" style="color: white;">
+              <!-- About text will be displayed here -->
+            </p>
+          </div>
+          <div class="education">
+            <h3 class="section-title">Education</h3>
+            <div id="displayEducation">
+              <!-- Education entries will be displayed here -->
+            </div>
+          </div>
+          <div class="experience">
+            <h3 class="section-title">Experience</h3>
+            <div id="displayExperience">
+              <!-- Experience entries will be displayed here -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="printResume()" class="generate-btn">Print Resume</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

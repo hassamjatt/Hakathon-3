@@ -1,0 +1,232 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
+    background-color: #4794be;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    
+  }
+  
+  .Heading{
+    color: rgb(248, 164, 164);
+    text-align: center;
+  }
+  
+  .form-section, .resume-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color:rgb(211, 251, 169);
+  }
+  
+  
+  .form-section h2, .resume-section h2 {
+    color: #98ecc4;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-family:'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f8f8fb;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  
+  .form-group input[type="file"] {
+    padding: 3px;
+   
+  }
+  .form-group input[type="text"],input[type="email"],input[type="url"] ,input[type="tel"],input[type="file"]{
+    color: white;
+   
+  }
+  textarea {
+    color: white;
+    
+  }
+  
+  .resume-section {
+    display: flex;
+    /* display: none; */
+    
+  }
+  .left-column, .right-column {
+    padding: 20px;
+  }
+  
+  .left-column {
+    width: 40%;
+    background: rgb(189, 119, 119);
+    color: #fff;
+    border-radius: 2px 0 0 2px;
+  }
+  .right-column {
+    width: 60%;
+    background: #f17b7b;
+    border-radius: 0 8px 8px 0;
+  }
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left:5rem;
+    /* margin-bottom: 20px; */
+  
+  }
+  h2.displayName{
+    color:white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .displayJobTitle{
+    color: white;
+  }
+  .contact-info, .skills, .social-links {
+    margin-bottom: 20px;
+  }
+  .contact-info i, .social-links i {
+    margin-right: 10px;
+  }
+  .skills .skill {
+    margin-bottom: 10px;
+  }
+  .skills .skill .skill-bar {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .skills .skill .skill-bar div {
+    height: 10px;
+    background: white;
+  }
+  .section-title {
+    font-weight: bold;
+    color: #eeecec;
+    margin-bottom: 10px;
+  }
+  .entry {
+    margin-bottom: 20px;
+    color: white;
+  }
+  .entry h3 {
+    margin: 0;
+    font-weight: bold;
+  }
+  .entry p {
+    margin: 5px 0 0 0;
+  }
+  .generate-btn {
+    background: #3304d1;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .generate-btn:hover {
+    background: #463b34;
+  }
+  
+  
+  
+  
+  /* Default styles for screen */
+  @media print {
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 0; 
+   } 
+  
+  .resume-section {
+    display: grid;
+    grid-template-columns: 30% auto;
+     /* Ensure the resume section takes up the whole page */
+  }
+  
+  .form-section,
+  .generate-btn,
+  .keyboard {
+    display: none; /* Hide form and buttons */
+  }
+  
+  .left-column,
+  .right-column {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    margin-right: 2%;
+  }
+  
+  .right-column {
+    margin-right: 0;
+  }
+  
+  .profile-pic {
+    border: 19px solid #000;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .contact-info,
+  .skills,
+  .social-links,
+  .about,
+  .education,
+  .experience {
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .skills ul,
+  .experience ul,
+  .education ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .skills li,
+  .experience li,
+  .education li {
+    margin-bottom: 5px;
+  }
+  
+  /* Optional: Style for print to look more neat */
+  .resume-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+  
+  }
